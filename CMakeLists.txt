@@ -35,7 +35,9 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(pico-handheld pico-handheld.c )
+add_executable( pico-handheld 
+                pico-handheld.c 
+                drivers/buttons.c)
 
 pico_set_program_name(pico-handheld "pico-handheld")
 pico_set_program_version(pico-handheld "0.1")
@@ -52,6 +54,7 @@ target_link_libraries(pico-handheld
 target_include_directories(pico-handheld PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
         ${CMAKE_CURRENT_LIST_DIR}/board
+        ${CMAKE_CURRENT_LIST_DIR}/drivers
 )
 
 pico_add_extra_outputs(pico-handheld)
