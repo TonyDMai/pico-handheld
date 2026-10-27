@@ -41,7 +41,7 @@ pico_set_program_name(pico-handheld "pico-handheld")
 pico_set_program_version(pico-handheld "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(pico-handheld 0)
+pico_enable_stdio_uart(pico-handheld 1)
 pico_enable_stdio_usb(pico-handheld 1)
 
 # Add the standard library to the build
@@ -51,7 +51,8 @@ target_link_libraries(pico-handheld
 # Add the standard include files to the build
 target_include_directories(pico-handheld PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
+        ${CMAKE_CURRENT_LIST_DIR}/board
 )
 
 pico_add_extra_outputs(pico-handheld)
-
+ 

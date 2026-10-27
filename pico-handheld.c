@@ -3,6 +3,7 @@
 #include "hardware/structs/sio.h"
 #include "hardware/structs/io_bank0.h"
 #include "hardware/structs/pads_bank0.h"
+#include "board_pins.h"
 
 #define BLINK_DELAY_MS 250
 #define LED_PIN PICO_DEFAULT_LED_PIN
