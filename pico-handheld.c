@@ -4,6 +4,7 @@
 #include "hardware/structs/io_bank0.h"
 #include "hardware/structs/pads_bank0.h"
 #include "board_pins.h"
+#include "buttons.h"
 
 #define BLINK_DELAY_MS 250
 #define LED_PIN PICO_DEFAULT_LED_PIN
@@ -44,9 +45,19 @@ static void reg_edit_blink(void){
     }
 }
 
-
 int main(void)
 {
     stdio_init_all();
-    reg_edit_blink();
+    sleep_ms(2);
+    //reg_edit_blink();
+    buttons_init();
+
+    while(1){
+        buttons_update();
+        if (buttons_pressed() != 0){
+            printf("%02X \n",buttons_pressed());
+        }
+        sleep_ms(5);
+    }
+
 }
